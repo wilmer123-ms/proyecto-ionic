@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar color="medium">
+    <ion-buttons slot="start">
+      <ion-back-button (click)="atras()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ lugar.nombre }}</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="eliminar()">
+        <ion-icon name="trash-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid class="ion-no-padding">
+    <ion-row>
+      <ion-col>
+        <ion-img [src]="lugar.imagen"></ion-img>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <h5 class="ion-text-center">{{ lugar.nombre }}</h5>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <ion-list *ngIf="lugar.comentario && lugar.comentario.length > 0; else noMostrar">
+          <ion-item *ngFor="let data of lugar.comentario">
+            {{ data }}
+          </ion-item>
+        </ion-list>
+        <ng-template #noMostrar>
+          <ion-text>
+            <p class="ion-text-center">No hay comentarios por mostrar</p>
+          </ion-text>
+        </ng-template>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

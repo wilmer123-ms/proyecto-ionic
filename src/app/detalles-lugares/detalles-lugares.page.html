@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button (click)="atras()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>detalles-lugares-Perú</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- <ion-list>
+    <ion-card *ngFor="let data of dataLugares; let i = index">
+      <img [src]="data.thumbnailUrl">
+      <ion-card-content>
+        <p>{{ data.title }}</p>
+      </ion-card-content>
+    </ion-card>
+  </ion-list> -->
+  <ion-grid class="ion-no-padding">
+    <ion-row *ngFor="let data of dataLugares; let i = index">
+      <ion-col>
+        <ion-img [src]="data.thumbnailUrl"></ion-img>
+        <ion-grid>
+          <ion-row>
+            <ion-col>
+              <p>{{data.title }}</p>
+              <p>{{data.albumId}}</p>
+              : <a [href]="data.url" target="_blank">{{ data.url }}</a>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

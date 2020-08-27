@@ -1,0 +1,35 @@
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-buttons slot="start">
+      <ion-back-button (click)="atras()"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Agregar un nuevo lugar</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-row>
+    <ion-col>
+      <ion-card>
+        <ion-card-content>
+          <ion-input
+            type="text"
+            placeholder="Escriba el nombre"
+            #nombre
+          ></ion-input>
+          <ion-input
+            type="text"
+            placeholder="Escriba la dirección de la imagen"
+            #imagen
+          ></ion-input>
+          <ion-button
+            color="primary"
+            (click)="agregraLugar(nombre, imagen)"
+            [disabled]="(nombre.value == '' || imagen.value == '')"
+            >Agregar lugar</ion-button
+          >
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-content>

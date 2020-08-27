@@ -8,9 +8,30 @@ const routes: Routes = [
   },
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'lugares',
     pathMatch: 'full'
   },
+  {
+    path: 'lugares',
+    children: [
+      {
+        path: '',
+        loadChildren: () => import('./lugares/lugares.module').then( m => m.LugaresPageModule)
+      },
+      {
+        path: ':lugaresId',
+        loadChildren: () => import('./lugares/detalles/detalles.module').then( m => m.DetallesPageModule)
+      },
+    ]
+  },
+  {
+    path: 'detalles-lugares',
+    loadChildren: () => import('./detalles-lugares/detalles-lugares.module').then( m => m.DetallesLugaresPageModule)
+  },
+  // {
+  //   path:'nuevo-lugar',
+  //   loadChildren: () => import('./lugares/nuevo-lugar/nuevo-lugar.module').then(m => m.NuevoLugarPageModule)
+  // }
 ];
 
 @NgModule({

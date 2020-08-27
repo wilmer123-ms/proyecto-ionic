@@ -1,0 +1,30 @@
+<ion-header>
+  <ion-toolbar color="secondary">
+    <ion-title>Lugares del Perú</ion-title>
+    <ion-buttons slot="end">
+      <ion-button size="default" (click)="detallesLugares()">
+        <ion-icon name="home-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item
+      *ngFor="let data of lugares; let i=index"
+      [routerLink]="['/lugares', data.id]"
+    >
+      <ion-avatar slot="start">
+        <ion-img [src]="data.imagen"></ion-img>
+      </ion-avatar>
+      {{ data.nombre}}
+    </ion-item>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button color="success" (click)="agregarLugar()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
